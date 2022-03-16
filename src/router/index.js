@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeScreen from '../views/HomeScreen.vue'
+import IndexPage from '../components/IndexPage.vue'
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: HomeScreen,
+        name: 'Index',
+        component: IndexPage,
     },
     {
         path: '/secondpage',
         name: 'SecondPage',
-        component: () => import('../views/SecondPage.vue'),
+        component: () => import('../components/SecondPage.vue'),
     },
 ]
 const router = createRouter({
