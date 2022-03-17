@@ -1,11 +1,15 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import IndexPage from './components/IndexPage.vue'
+import appHeader from './components/appHeader.vue'
+import appFooter from './components/appFooter.vue'
 </script>
 
 <template>
+    <appHeader />
+
     <router-view />
+    <appFooter />
 </template>
 
 <style>
@@ -14,6 +18,6 @@ import IndexPage from './components/IndexPage.vue'
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    background-color: rgb(132, 146, 166);
 }
 </style>

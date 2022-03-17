@@ -3,12 +3,12 @@ import IndexPage from '../components/IndexPage.vue'
 const routes = [
     {
         path: '/',
-        name: 'Index',
+        name: 'index',
         component: IndexPage,
     },
     {
-        path: '/secondpage',
-        name: 'SecondPage',
+        path: '/details',
+        name: 'details',
         component: () => import('../components/SecondPage.vue'),
     },
 ]
