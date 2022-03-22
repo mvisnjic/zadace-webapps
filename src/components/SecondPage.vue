@@ -1,3 +1,5 @@
+/* eslint-disable vue/multi-word-component-names */ /* eslint-disable
+vue/multi-word-component-names */
 <template>
     <div>
         <div class="">
@@ -8,18 +10,24 @@
                 Go back
             </button>
         </div>
-        Coming Soon
+        {{ id }} <br />
+        {{ name }} <br />
+        {{ email }} <br />
+        {{ date }} <br />
+        {{ date }} <br />
+        {{ msg }} <br />
+        {{ image }} <br />
     </div>
 </template>
 
 <script>
-import router from '../router'
-
 export default {
-    name: 'SecondPage',
+    // eslint-disable-next-line vue/multi-word-component-names
+    name: 'details',
+    props: ['id', 'name', 'email', 'date', 'msg', 'image'],
     methods: {
         goBack() {
-            router.go(-1)
+            return this.$router.replace('/')
         },
     },
 }

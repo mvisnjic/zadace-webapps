@@ -7,9 +7,10 @@ const routes = [
         component: IndexPage,
     },
     {
-        path: '/details',
+        path: '/details/:id',
         name: 'details',
         component: () => import('../components/SecondPage.vue'),
+        props: true,
     },
 ]
 const router = createRouter({
