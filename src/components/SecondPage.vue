@@ -1,22 +1,21 @@
-/* eslint-disable vue/multi-word-component-names */ /* eslint-disable
-vue/multi-word-component-names */
 <template>
-    <div>
-        <div class="">
+    <div class="mx-7 lg:mx-72">
+        <div>
             <button
                 @click="goBack"
-                class="rounded-full bg-black text-white p-2"
+                class="rounded-full bg-black text-white p-2 mb-8"
             >
                 Go back
             </button>
         </div>
-        {{ id }} <br />
-        {{ name }} <br />
-        {{ email }} <br />
-        {{ date }} <br />
-        {{ date }} <br />
-        {{ msg }} <br />
-        {{ image }} <br />
+        <div class="card grid justify-items-center">
+            <img :src="image" alt="avatar" class="max-h-[150px]" />
+            {{ name }} <br />
+            {{ email }} <br />
+            {{ date }} <br />
+            {{ date }} <br />
+            {{ msg }} <br />
+        </div>
     </div>
 </template>
 
