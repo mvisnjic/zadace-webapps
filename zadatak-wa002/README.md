@@ -1,7 +1,16 @@
-# Vue 3 + Vite
+# zadatak-wa002
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Matej Višnjić
+0303092423
+Kolegij: Web apps\
+Zadatak nije dovršen do kraja!!!
 
-## Recommended IDE Setup
+Zadatak:
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+```
+Zadatak je poslati zahtjev u obliku imena na sva tri endpointa i na temelju tog zahtjeva
+prikazati sve podatke u jednoj tablici.
+
+Tri API endpointa: Za godine (https://agify.io/), za spol (https://genderize.io/) i za
+nacionalnost (https://nationalize.io/).
+```
