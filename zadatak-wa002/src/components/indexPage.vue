@@ -5,7 +5,7 @@
             <input
                 class="border-black border rounded-xl p-2"
                 type=""
-                placeholder="Enter name..."
+                placeholder="Matej Doe"
                 v-model="inputName"
                 v-on:keyup.enter="getFetch"
             />
@@ -19,20 +19,66 @@
                 Send requests
             </button>
         </div>
-
         <br />
-        <!-- <router-link to="/">Yourviewname</router-link> -->
+        <table class="table-auto mx-auto border-solid border-2 w-2/3">
+            <thead>
+                <tr
+                    class="border-b-2 border-slate-300 text-[20px] font-bold bg-slate-200"
+                >
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>C-Probability</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>G-Probability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b-2">
+                    <td>
+                        <div v-for="name in 1" :key="name">
+                            {{ secondData.name }}
+                        </div>
+                    </td>
+                    <td>
+                        <div v-for="item in firstData.country" :key="item.id">
+                            {{ item.country_id }}
+                        </div>
+                    </td>
+                    <td>
+                        <div v-for="item in firstData.country" :key="item.id">
+                            {{ item.probability }}
+                        </div>
+                    </td>
+                    <td>
+                        <div v-for="age in 1" :key="age">
+                            {{ thirdData.age }}
+                        </div>
+                    </td>
+                    <td>
+                        <div v-for="gender in 1" :key="gender">
+                            {{ secondData.gender }}
+                        </div>
+                    </td>
+                    <td>
+                        <div v-for="probability in 1" :key="probability">
+                            {{ secondData.probability }}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <div v-for="item of data.country" :key="item.country_id">
+            {{ item.country_id }}
+            {{ item.probability }} <br />
+            {{ item }}
+        </div> -->
+        <br />
     </div>
 </template>
 
 <script>
 import axios from 'axios'
-import { ref } from 'vue'
-
-const data = ref(null)
-const error = ref(null)
-
-// let data = []
 export default {
     name: 'indexPage',
     setup() {
@@ -43,11 +89,13 @@ export default {
     },
     data() {
         return {
-            data: [],
+            firstData: [],
+            secondData: [],
+            thirdData: [],
         }
     },
     methods: {
-        getFetch() {
+        async getFetch() {
             if (this.inputName == '') {
                 alert('I cant get data with blank textfield!')
                 return
@@ -55,17 +103,17 @@ export default {
                 let urlOne = `https://api.nationalize.io/?name=${this.inputName}`
                 let urlTwo = `https://api.genderize.io/?name=${this.inputName}`
                 let urlThree = `https://api.agify.io/?name=${this.inputName}`
-                console.log(this.inputName)
+                const reqOne = axios.get(urlOne)
+                const reqTwo = axios.get(urlTwo)
+                const reqThree = axios.get(urlThree)
 
-                axios
-                    .get(urlOne)
-                    .then((res) => {
-                        console.log(res.data)
-                        data.value = res.data
+                await axios.all([reqOne, reqTwo, reqThree]).then(
+                    axios.spread((...res) => {
+                        this.firstData = res[0].data
+                        this.secondData = res[1].data
+                        this.thirdData = res[2].data
                     })
-                    .catch((e) => {
-                        error.value = e
-                    })
+                )
             }
         },
     },
